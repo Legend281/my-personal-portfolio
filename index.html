@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mai Randy | Full Stack Web Developer</title>
+    
+    <!-- 2026 External Libraries -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+  </head>
+  <body class="antialiased selection:bg-primary/30 loading">
+    
+    <!-- Cinematic Overlays -->
+    <div class="grain-overlay"></div>
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="text-xs uppercase tracking-widest text-primary mb-2 font-bold loader-text">Loading Assets</div>
+      <div class="preloader-counter">0%</div>
+      <div class="w-24 h-1 bg-white/10 mt-6 rounded-full overflow-hidden">
+        <div class="preloader-bar h-full bg-primary w-0"></div>
+      </div>
+    </div>
+    
+    <!-- Full Screen Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+      <div class="flex flex-col items-center gap-8 text-4xl font-black">
+         <a href="#projects" class="menu-link text-white hover:text-primary transition-colors">Work</a>
+         <a href="#process" class="menu-link text-white hover:text-primary transition-colors">Process</a>
+         <a href="#services" class="menu-link text-white hover:text-primary transition-colors">Services</a>
+         <a href="#experience" class="menu-link text-white hover:text-primary transition-colors">Experience</a>
+         <a href="#contact" class="menu-link text-primary mt-4 text-2xl uppercase tracking-widest">Hire Me</a>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+        <div class="glass border-b border-white/5 px-6 py-3 rounded-2xl flex items-center justify-between">
+          <div class="flex-shrink-0 hover-target">
+            <a href="#" class="text-2xl font-black tracking-tighter flex items-center gap-1 text-primary">
+              Mai <span class="text-white">Randy</span>
+            </a>
+          </div>
+          <!-- Desktop Links -->
+          <div class="hidden md:flex space-x-10 text-sm font-medium">
+            <a href="#projects" class="text-white hover-target">Work</a>
+            <a href="#process" class="text-text-muted hover:text-white transition-colors hover-target">Process</a>
+            <a href="#experience" class="text-text-muted hover:text-white transition-colors hover-target">Experience</a>
+            <a href="#services" class="text-text-muted hover:text-white transition-colors hover-target">Services</a>
+          </div>
+          <div class="hidden md:flex items-center gap-4 hover-target">
+            <a href="#contact" class="bg-primary/10 hover:bg-primary/20 text-text border border-primary/20 px-6 py-2 rounded-full font-semibold transition-all">Hire Me</a>
+          </div>
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" class="md:hidden text-white p-2 z-50 relative focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path class="menu-icon-bars" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="relative z-10">
+      <!-- 3D Hero Section (Split Layout) -->
+      <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden pt-24 md:pt-32 pb-16">
+        
+        <!-- Spline 3D Viewer Background -->
+        <div class="absolute inset-0 z-0 opacity-80" data-parallax="true">
+          <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-iab9I/scene.splinecode"></spline-viewer>
+        </div>
+        <!-- Gradient fades -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-0 overflow-hidden pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-background/40 to-transparent z-0 pointer-events-none hidden lg:block"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center mt-10 md:mt-0">
+          
+          <!-- Left Column: Typography -->
+          <div class="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 pointer-events-none">
+            
+            <div class="inline-flex items-center gap-2 bg-surface/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-6 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hero-anim">
+              <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+              <span class="text-[10px] md:text-xs font-bold tracking-widest uppercase text-text-muted">Available for remote roles</span>
+            </div>
+
+            <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary mb-4 md:mb-6 font-bold split-text hero-anim">A Full-Stack Web Developer</p>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-black tracking-tighter text-white mb-6 leading-[1.05] split-header block w-full hero-anim">
+              Hi, I'm<br/><span class="text-gradient">Mai Randy</span>
+            </h1>
+            
+            <p class="text-text-muted text-base md:text-lg font-medium leading-relaxed max-w-xl mb-10 hero-anim">
+              I architect sophisticated digital experiences engineered for scale. Uniting raw serverless logic with beautiful, high-performance visual interactions.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-4 pointer-events-auto w-full sm:w-auto hero-anim">
+              <a href="#projects" class="hover-target bg-primary hover:bg-primary-dark text-background px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(182,128,244,0.3)] hover:shadow-[0_0_30px_rgba(182,128,244,0.5)] w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                View My Work
+              </a>
+              <a href="#contact" class="hover-target glass-card flex justify-center items-center px-8 py-4 rounded-full font-bold text-white transition-all hover:bg-white/5 w-full sm:w-auto text-center border border-white/10">
+                Start a dialog
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Massive Portrait -->
+          <div class="order-1 lg:order-2 flex justify-center lg:justify-end hero-anim">
+            <div class="relative w-full max-w-[280px] sm:max-w-sm md:max-w-[420px] lg:max-w-[460px]">
+              <!-- Epic Neon Underglow -->
+              <div class="absolute inset-0 bg-primary/20 rounded-[2rem] md:rounded-[3rem] blur-[80px] -z-10 mix-blend-screen pointer-events-none"></div>
+              
+              <!-- Glass Portrait Framing -->
+              <div class="relative glass-card rounded-[2rem] md:rounded-[3rem] p-3 md:p-4 hover-target group overflow-hidden pointer-events-auto aspect-[4/5] w-full transform transition-transform duration-700 hover:scale-[1.02]">
+                <div class="absolute inset-0 border border-white/20 rounded-[2rem] md:rounded-[3rem] z-20 pointer-events-none"></div>
+                
+                <img src="/IMG_1472.jpeg" alt="Mai Randy Portrait" class="w-full h-full object-cover object-center rounded-2xl md:rounded-[2.5rem] relative z-10 brightness-[0.95] contrast-[1.05]" />
+                
+                <!-- Overlay vignette to perfectly merge the edges into the dark UI -->
+                <div class="absolute inset-0 rounded-2xl md:rounded-[2.5rem] bg-gradient-to-t from-background/80 via-transparent to-transparent z-20 pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Infinite Marquee Banner -->
+      <div class="bg-surface-light/30 py-4 marquee-container">
+        <div class="marquee-content gap-8 px-4">
+          <div class="flex gap-8 items-center text-[10px] md:text-sm font-bold tracking-widest text-text-muted uppercase shrink-0">
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> TIMEZONE FLEXIBILITY</div>
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> ASYNC COMMUNICATION</div>
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> SET WORKFLOW</div>
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> ENGLISH COMMUNICATION</div>
+          </div>
+          <div class="flex gap-8 items-center text-[10px] md:text-sm font-bold tracking-widest text-text-muted uppercase shrink-0">
+             <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> TIMEZONE FLEXIBILITY</div>
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> ASYNC COMMUNICATION</div>
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> SET WORKFLOW</div>
+            <div class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-primary/50"></div> ENGLISH COMMUNICATION</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About / The Professional (Bento Grid) -->
+      <section id="about" class="py-24 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="mb-16 md:mb-24 text-center">
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 split-header inline-block">
+              The Professional
+            </h2>
+            <p class="text-primary font-medium tracking-widest uppercase text-xs md:text-sm mt-2 gsap-fade-up">System Architect</p>
+          </div>
+
+          <!-- Bento Grid Layout -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full max-w-5xl mx-auto text-left">
+            
+            <!-- Large Bio Narrative (Full Width across rows depending on device, wait let's just make it span 2 on md: up) -->
+            <div class="glass-card rounded-[2rem] p-8 md:p-12 md:col-span-2 relative overflow-hidden group hover-target gsap-fade-up flex flex-col justify-end min-h-[300px]">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-all duration-700 pointer-events-none"></div>
+              
+              <svg class="w-10 h-10 text-primary mb-6 drop-shadow-[0_0_15px_rgba(182,128,244,0.3)] relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10 leading-tight">Crafting robust logic<br/>& beautiful pixels.</h3>
+              <p class="text-text-muted text-base md:text-lg font-medium leading-relaxed max-w-3xl relative z-10">
+                I am a Full Stack Web Developer passionate about building modern, scalable, and user-focused digital solutions. My approach blends robust technical architecture alongside a deep understanding of user psychology. I don't just write code — I build systems that empower businesses.
+              </p>
+            </div>
+
+            <!-- Frontend Box -->
+            <div class="glass-card rounded-[2rem] p-8 md:p-10 relative overflow-hidden group hover-target gsap-fade-up flex flex-col justify-between min-h-[250px]">
+              <div class="absolute bottom-0 left-0 w-full h-1/2 bg-blue-500/5 blur-[50px] group-hover:bg-blue-500/10 transition-all duration-700 pointer-events-none"></div>
+              <h4 class="font-bold text-blue-400 mb-6 text-[10px] md:text-xs uppercase tracking-widest bg-blue-500/10 inline-block px-4 py-2 rounded-full w-max border border-blue-500/20 relative z-10">Frontend Engine</h4>
+              <div class="space-y-3 relative z-10">
+                <p class="text-white font-bold text-2xl md:text-3xl">React & Next.js</p>
+                <p class="text-text-muted font-medium text-sm md:text-base">GSAP Animations & Physics</p>
+                <p class="text-text-muted font-medium text-sm md:text-base">Tailwind CSS v4 styling</p>
+              </div>
+            </div>
+
+            <!-- Backend Box -->
+            <div class="glass-card rounded-[2rem] p-8 md:p-10 relative overflow-hidden group hover-target gsap-fade-up flex flex-col justify-between min-h-[250px]">
+              <div class="absolute bottom-0 right-0 w-full h-1/2 bg-yellow-500/5 blur-[50px] group-hover:bg-yellow-500/10 transition-all duration-700 pointer-events-none"></div>
+              <h4 class="font-bold text-yellow-500 mb-6 text-[10px] md:text-xs uppercase tracking-widest bg-yellow-500/10 inline-block px-4 py-2 rounded-full w-max border border-yellow-500/20 relative z-10">Backend Core</h4>
+              <div class="space-y-3 relative z-10">
+                 <p class="text-white font-bold text-2xl md:text-3xl">Node.js & Express</p>
+                 <p class="text-text-muted font-medium text-sm md:text-base">PostgreSQL Database Design</p>
+                 <p class="text-text-muted font-medium text-sm md:text-base">REST & GraphQL APIs</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack Ecosystem -->
+      <section id="skills" class="py-12 border-y border-white/5 relative bg-surface-light/20 overflow-hidden">
+        
+        <!-- Forward Marquee -->
+        <div class="marquee-container no-borders mb-6">
+          <div class="marquee-content gap-12 px-6 items-center">
+            
+            <div class="flex gap-12 items-center shrink-0">
+              <!-- React -->
+              <svg class="tech-icon" viewBox="0 0 118 102" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M59.1 22.8c-10.6 0-21.3.5-30.8 1.4-1.7.2-2.3 2.5-1.1 3.7l6.6 6.6c1.2 1.2 3.1 1.2 4.3 0l6.6-6.6-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6-6.6c1.2-1.2 3.1-1.2 4.3 0L59 17.5l9.8-9.8c1.2-1.2 3.1-1.2 4.3 0l6.6 6.6c1.2 1.2 1.2 3.1 0 4.3L73 25.3l6.6 6.6c1.2 1.2 3.1 1.2 4.3 0l6.6-6.6c1.2-1.2.6-3.5-1.1-3.7-9.5-.9-20.2-1.4-30.3-1.4z" fill="#61DAFB"/><path d="M59 79.2c10.6 0 21.3-.5 30.8-1.4 1.7-.2 2.3-2.5 1.1-3.7l-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0l-6.6 6.6 6.6 6.6c1.2 1.2 1.2 3.1 0 4.3l-6.6 6.6c-1.2 1.2-3.1 1.2-4.3 0L59 84.5l-9.8 9.8c-1.2 1.2-3.1 1.2-4.3 0l-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6-6.6-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0l-6.6 6.6c-1.2 1.2-.6 3.5 1.1 3.7 9.5.9 20.2 1.4 30.3 1.4z" fill="#61DAFB"/><path d="M22.8 59.1c0-10.6.5-21.3 1.4-30.8.2-1.7 2.5-2.3 3.7-1.1l6.6 6.6c1.2 1.2 1.2 3.1 0 4.3l-6.6 6.6-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0l-6.6 6.6c-1.2 1.2-1.2 3.1 0 4.3L17.5 59l-9.8 9.8c-1.2 1.2-1.2 3.1 0 4.3l6.6 6.6c1.2 1.2 3.1 1.2 4.3 0L25.3 73l6.6 6.6c1.2 1.2 1.2 3.1 0 4.3l-6.6-6.6c-1.2-1.2-3.5-.6-3.7-1.1-9.5-9.5-1.4-20.2-1.4-30.3z" fill="#61DAFB"/><path d="M79.2 59.1c0 10.6-.5 21.3-1.4 30.8-.2 1.7-2.5 2.3-3.7 1.1l-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6-6.6 6.6 6.6c1.2 1.2 3.1 1.2 4.3 0l6.6-6.6c1.2-1.2 1.2-3.1 0-4.3L84.5 59l9.8-9.8c1.2-1.2 1.2-3.1 0-4.3l-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0L73 25.3l-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6 6.6c1.2 1.2 3.5.6 3.7 1.1.9 9.5 1.4 20.2 1.4 30.3z" fill="#61DAFB"/><circle cx="59.1" cy="59.1" r="11" fill="#61DAFB"/></svg>
+              <!-- Next.js -->
+              <svg class="tech-icon" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M90 180c49.7 0 90-40.3 90-90S139.7 0 90 0 0 40.3 0 90s40.3 90 90 90zm-14.7-58.8H65.8V65.8h10.9V112h32V98.6H86.2v11.1H75.3v11.5zM128 65.8h-11.4l-11.6 22H105l-11.6-22H81.8l17 32.2L81 122.5h11.4l11.6-22.1H104l11.6 22.1H127l-17.1-32.5 18.1-34.2z" fill="#fff"/></svg>
+              <!-- TypeScript -->
+              <div class="tech-icon bg-[#3178C6] rounded flex items-center justify-center text-white font-bold text-xl h-[50px] w-[50px] leading-none shrink-0 border border-white/10">TS</div>
+              <!-- Tailwind -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 12c-20 0-38 10-48 24 10-6 20-8 28-6 6 1.5 11 7.5 20 7.5 19.5 0 35.5-16 35.5-36 0-14-11-26-25-26-10 0-20 5-28 14-6-1.5-12-6-20-6-19.5 0-35.5 16-35.5 36 0 14 11 26 25 26 10 0 20-5 28-14 6 1.5 12 6 20 6 19.5 0 35.5-16 35.5-36 0-14-11-26-25-26h-2z" fill="#06B6D4" transform="matrix(1 0 0 -1 0 128)"/></svg>
+              <!-- Node.js -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 5.3l-55.5 32v64L64 133.3l55.5-32v-64L64 5.3zm47.2 91.5L64 124 16.8 96.8V42.3L64 15.1l47.2 27.2v54.5z" fill="#339933"/></svg>
+              <!-- Postgres -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 15L15 43v42l49 28 49-28V43L64 15z" fill="#4169E1"/></svg>
+              <!-- GraphQL -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M124 64A60 60 0 114 64a60 60 0 01120 0z" fill="#E10098"/></svg>
+            </div>
+            
+            <div class="flex gap-12 items-center shrink-0">
+               <!-- Repeated for infinite scroll -->
+              <svg class="tech-icon" viewBox="0 0 118 102" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M59.1 22.8c-10.6 0-21.3.5-30.8 1.4-1.7.2-2.3 2.5-1.1 3.7l6.6 6.6c1.2 1.2 3.1 1.2 4.3 0l6.6-6.6-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6-6.6c1.2-1.2 3.1-1.2 4.3 0L59 17.5l9.8-9.8c1.2-1.2 3.1-1.2 4.3 0l6.6 6.6c1.2 1.2 1.2 3.1 0 4.3L73 25.3l6.6 6.6c1.2 1.2 3.1 1.2 4.3 0l6.6-6.6c1.2-1.2.6-3.5-1.1-3.7-9.5-.9-20.2-1.4-30.3-1.4z" fill="#61DAFB"/><path d="M59 79.2c10.6 0 21.3-.5 30.8-1.4 1.7-.2 2.3-2.5 1.1-3.7l-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0l-6.6 6.6 6.6 6.6c1.2 1.2 1.2 3.1 0 4.3l-6.6 6.6c-1.2 1.2-3.1 1.2-4.3 0L59 84.5l-9.8 9.8c-1.2 1.2-3.1 1.2-4.3 0l-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6-6.6-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0l-6.6 6.6c-1.2 1.2-.6 3.5 1.1 3.7 9.5.9 20.2 1.4 30.3 1.4z" fill="#61DAFB"/><path d="M22.8 59.1c0-10.6.5-21.3 1.4-30.8.2-1.7 2.5-2.3 3.7-1.1l6.6 6.6c1.2 1.2 1.2 3.1 0 4.3l-6.6 6.6-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0l-6.6 6.6c-1.2 1.2-1.2 3.1 0 4.3L17.5 59l-9.8 9.8c-1.2 1.2-1.2 3.1 0 4.3l6.6 6.6c1.2 1.2 3.1 1.2 4.3 0L25.3 73l6.6 6.6c1.2 1.2 1.2 3.1 0 4.3l-6.6-6.6c-1.2-1.2-3.5-.6-3.7-1.1-9.5-9.5-1.4-20.2-1.4-30.3z" fill="#61DAFB"/><path d="M79.2 59.1c0 10.6-.5 21.3-1.4 30.8-.2 1.7-2.5 2.3-3.7 1.1l-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6-6.6 6.6 6.6c1.2 1.2 3.1 1.2 4.3 0l6.6-6.6c1.2-1.2 1.2-3.1 0-4.3L84.5 59l9.8-9.8c1.2-1.2 1.2-3.1 0-4.3l-6.6-6.6c-1.2-1.2-3.1-1.2-4.3 0L73 25.3l-6.6-6.6c-1.2-1.2-1.2-3.1 0-4.3l6.6 6.6c1.2 1.2 3.5.6 3.7 1.1.9 9.5 1.4 20.2 1.4 30.3z" fill="#61DAFB"/><circle cx="59.1" cy="59.1" r="11" fill="#61DAFB"/></svg>
+              <svg class="tech-icon" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M90 180c49.7 0 90-40.3 90-90S139.7 0 90 0 0 40.3 0 90s40.3 90 90 90zm-14.7-58.8H65.8V65.8h10.9V112h32V98.6H86.2v11.1H75.3v11.5zM128 65.8h-11.4l-11.6 22H105l-11.6-22H81.8l17 32.2L81 122.5h11.4l11.6-22.1H104l11.6 22.1H127l-17.1-32.5 18.1-34.2z" fill="#fff"/></svg>
+              <div class="tech-icon bg-[#3178C6] rounded flex items-center justify-center text-white font-bold text-xl h-[50px] w-[50px] leading-none shrink-0 border border-white/10">TS</div>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 12c-20 0-38 10-48 24 10-6 20-8 28-6 6 1.5 11 7.5 20 7.5 19.5 0 35.5-16 35.5-36 0-14-11-26-25-26-10 0-20 5-28 14-6-1.5-12-6-20-6-19.5 0-35.5 16-35.5 36 0 14 11 26 25 26 10 0 20-5 28-14 6 1.5 12 6 20 6 19.5 0 35.5-16 35.5-36 0-14-11-26-25-26h-2z" fill="#06B6D4" transform="matrix(1 0 0 -1 0 128)"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 5.3l-55.5 32v64L64 133.3l55.5-32v-64L64 5.3zm47.2 91.5L64 124 16.8 96.8V42.3L64 15.1l47.2 27.2v54.5z" fill="#339933"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 15L15 43v42l49 28 49-28V43L64 15z" fill="#4169E1"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M124 64A60 60 0 114 64a60 60 0 01120 0z" fill="#E10098"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reverse Marquee -->
+        <div class="marquee-container no-borders">
+          <div class="marquee-content-reverse gap-12 px-6 items-center flex-row-reverse">
+            
+            <div class="flex gap-12 items-center shrink-0">
+              <!-- AWS -->
+              <svg class="tech-icon" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 125l-2.4 7c-4.4 13.1-15 19.4-27.1 19.4-12.8 0-21.7-8.9-21.7-22v-34.5H99.4v35.8c0 21 13 34.6 32.5 34.6 15.4 0 25.1-6.6 31.8-19.1l2.7-13.2h-1z" fill="#FF9900"/></svg>
+              <!-- Docker -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M124.6 57.3c-.6-3.8-2.6-9.6-6.7-14.8l-4.5 2.1c3.1 4 4.8 8.6 5.3 11.2-5-2-10.4-3.1-15.6-3.1-16.7 0-31.9 8.7-41 22.8-5.3 8.3-9.5 19.3-9.5 31.8H4v10.5h48.5c0-12.6 4.3-23.5 9.5-31.8 9.2-14.1 24.3-22.8 41-22.8 5.4 0 10.9 1 15.9 3.2l5.7-9.1v-0.1zM58.9 92.5v15.3l-21.2-6.5V86l21.2 6.5z" fill="#2496ED"/></svg>
+              <!-- Vercel -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 4L0 120h128L64 4z" fill="#FFF"/></svg>
+              <!-- Prisma -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0L4 35v58l60 35 60-35V35L64 0z" fill="#2D3748"/></svg>
+              <!-- Supabase -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="64" cy="64" r="60" fill="#3ECF8E"/></svg>
+              <!-- Framer Motion -->
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0H0v64h64l64-64H64zm0 64v64L0 64h64z" fill="#0055FF"/></svg>
+            </div>
+
+            <div class="flex gap-12 items-center shrink-0">
+               <!-- Repeated for infinite scroll -->
+              <svg class="tech-icon" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M166.4 125l-2.4 7c-4.4 13.1-15 19.4-27.1 19.4-12.8 0-21.7-8.9-21.7-22v-34.5H99.4v35.8c0 21 13 34.6 32.5 34.6 15.4 0 25.1-6.6 31.8-19.1l2.7-13.2h-1z" fill="#FF9900"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M124.6 57.3c-.6-3.8-2.6-9.6-6.7-14.8l-4.5 2.1c3.1 4 4.8 8.6 5.3 11.2-5-2-10.4-3.1-15.6-3.1-16.7 0-31.9 8.7-41 22.8-5.3 8.3-9.5 19.3-9.5 31.8H4v10.5h48.5c0-12.6 4.3-23.5 9.5-31.8 9.2-14.1 24.3-22.8 41-22.8 5.4 0 10.9 1 15.9 3.2l5.7-9.1v-0.1zM58.9 92.5v15.3l-21.2-6.5V86l21.2 6.5z" fill="#2496ED"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 4L0 120h128L64 4z" fill="#FFF"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0L4 35v58l60 35 60-35V35L64 0z" fill="#2D3748"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="64" cy="64" r="60" fill="#3ECF8E"/></svg>
+              <svg class="tech-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M64 0H0v64h64l64-64H64zm0 64v64L0 64h64z" fill="#0055FF"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Precision Workflow -->
+      <section id="process" class="py-24 md:py-40 bg-surface/30">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-7xl font-black text-white mb-2 md:mb-4 split-header inline-block">Precision Workflow</h2>
+            <p class="text-primary font-medium tracking-widest uppercase text-xs md:text-sm mt-4 gsap-fade-up">A battle-tested methodology</p>
+          </div>
+
+          <div class="relative w-full gsap-fade-up stagger-parent max-w-sm md:max-w-full mx-auto">
+            <!-- Connecting Line: Vertical on Mobile, Horizontal on Desktop -->
+            <div class="absolute top-0 left-[21px] md:top-[22px] md:left-0 w-[2px] md:w-full h-[90%] md:h-[2px] bg-white/10 -z-10">
+              <div class="workflow-progress bg-primary w-full md:w-0 h-0 md:h-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
+              <!-- Steps dynamically trigger via ScrollTrigger -->
+              <div class="relative stagger-item flex flex-row md:flex-col items-start gap-6 md:gap-0 hover-target">
+                <div class="w-11 h-11 shrink-0 rounded-full bg-surface border-2 border-primary text-primary flex items-center justify-center font-bold text-sm md:mb-6 z-10 drop-shadow-[0_0_15px_rgba(182,128,244,0.4)] md:mx-auto">01</div>
+                <div class="pt-2 md:pt-0 text-left md:text-center w-full">
+                  <h3 class="text-xl font-bold text-white mb-2 md:mb-3">Discovery</h3>
+                  <p class="text-text-muted text-sm font-medium">Deep dive into goals.</p>
+                </div>
+              </div>
+               <div class="relative stagger-item flex flex-row md:flex-col items-start gap-6 md:gap-0 hover-target">
+                <div class="w-11 h-11 shrink-0 rounded-full bg-surface border-2 border-primary text-primary flex items-center justify-center font-bold text-sm md:mb-6 z-10 drop-shadow-[0_0_15px_rgba(182,128,244,0.4)] md:mx-auto">02</div>
+                <div class="pt-2 md:pt-0 text-left md:text-center w-full">
+                  <h3 class="text-xl font-bold text-white mb-2 md:mb-3">Planning</h3>
+                  <p class="text-text-muted text-sm font-medium">Architecting flows.</p>
+                </div>
+              </div>
+               <div class="relative stagger-item flex flex-row md:flex-col items-start gap-6 md:gap-0 hover-target">
+                <div class="w-11 h-11 shrink-0 rounded-full bg-surface border-2 border-primary text-primary flex items-center justify-center font-bold text-sm md:mb-6 z-10 drop-shadow-[0_0_15px_rgba(182,128,244,0.4)] md:mx-auto">03</div>
+                <div class="pt-2 md:pt-0 text-left md:text-center w-full">
+                  <h3 class="text-xl font-bold text-white mb-2 md:mb-3">Development</h3>
+                  <p class="text-text-muted text-sm font-medium">Clean, modular code.</p>
+                </div>
+              </div>
+               <div class="relative stagger-item flex flex-row md:flex-col items-start gap-6 md:gap-0 hover-target">
+                <div class="w-11 h-11 shrink-0 rounded-full bg-surface border-2 border-primary text-primary flex items-center justify-center font-bold text-sm md:mb-6 z-10 drop-shadow-[0_0_15px_rgba(182,128,244,0.4)] md:mx-auto">04</div>
+                <div class="pt-2 md:pt-0 text-left md:text-center w-full">
+                  <h3 class="text-xl font-bold text-white mb-2 md:mb-3">Testing</h3>
+                  <p class="text-text-muted text-sm font-medium">End to End QA validation.</p>
+                </div>
+              </div>
+               <div class="relative stagger-item flex flex-row md:flex-col items-start gap-6 md:gap-0 hover-target">
+                <div class="w-11 h-11 shrink-0 rounded-full bg-primary text-background flex items-center justify-center font-bold text-sm md:mb-6 z-10 shadow-[0_0_20px_rgba(182,128,244,0.8)] md:mx-auto border-2 border-primary">05</div>
+                <div class="pt-2 md:pt-0 text-left md:text-center w-full">
+                  <h3 class="text-xl font-bold text-gradient mb-2 md:mb-3">Deployment</h3>
+                  <p class="text-text-muted text-sm font-medium">Scaling on Cloud infra.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Architecture (Projects Gallery) -->
+      <section id="projects" class="py-24 md:py-40">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="mb-20 md:mb-32 text-center md:text-left">
+            <h2 class="text-4xl md:text-7xl font-black text-white split-header inline-block">Architecture<br/>Showcase</h2>
+          </div>
+
+          <div class="space-y-32 md:space-y-48">
+            
+            <!-- Project 1: Right Image (Purple Glow) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+              <div class="order-2 lg:order-1 gsap-fade-up text-center md:text-left">
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-primary mb-3 md:mb-4 block">FINANCE SAAS DAPP</span>
+                <h3 class="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">Budget Planning Web App</h3>
+                <div class="mb-8">
+                  <p class="text-text-muted font-medium text-base md:text-lg leading-relaxed">Fragmented financial data making it impossible for users to forecast savings and expenses accurately. Built a beautiful real-time data stream dashboard with React.js and Prisma.</p>
+                </div>
+                <div class="flex gap-3 mb-8 justify-center lg:justify-start flex-wrap">
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">React</span>
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">Tailwind</span>
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">Prisma</span>
+                </div>
+                <a href="#" class="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-6 py-3 rounded-full text-sm font-bold transition-all hover-target uppercase tracking-widest border border-primary/20 hover:border-primary/50">
+                  Explore Architecture <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+              </div>
+              <div class="order-1 lg:order-2">
+                <div class="relative w-full aspect-[4/3] md:aspect-video group hover-target img-parallax-container rounded-[2rem]">
+                  <div class="absolute inset-0 bg-primary/20 rounded-[2rem] blur-[60px] -z-10 group-hover:bg-primary/40 transition-all duration-700"></div>
+                  <div class="rounded-[2rem] overflow-hidden glass-card p-2 md:p-3 relative z-10 w-full h-full border border-white/10">
+                    <img src="/budget.png" alt="Budget UI Mockup" class="img-parallax w-full h-full object-cover rounded-xl md:rounded-[1.5rem]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Left Image (Blue Glow) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+              <div class="order-1 lg:order-1">
+                <div class="relative w-full aspect-[4/3] md:aspect-video group hover-target img-parallax-container rounded-[2rem]">
+                  <div class="absolute inset-0 bg-blue-500/20 rounded-[2rem] blur-[60px] -z-10 group-hover:bg-blue-500/40 transition-all duration-700"></div>
+                  <div class="rounded-[2rem] overflow-hidden glass-card p-2 md:p-3 relative z-10 w-full h-full border border-white/10 backdrop-blur-md bg-surface/50">
+                    <!-- Placeholder SVG for Project 2 -->
+                    <div class="w-full h-full rounded-xl md:rounded-[1.5rem] bg-surface-light flex items-center justify-center">
+                      <svg class="w-20 h-20 text-blue-500/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="order-2 lg:order-2 gsap-fade-up text-center md:text-left">
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-blue-400 mb-3 md:mb-4 block">ENTERPRISE E-COMMERCE</span>
+                <h3 class="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">Global Checkout Engine</h3>
+                <div class="mb-8">
+                  <p class="text-text-muted font-medium text-base md:text-lg leading-relaxed">Engineered a highly resilient checkout architecture capable of processing 10,000 requests per minute with ZERO latency jitter using serverless edge functions.</p>
+                </div>
+                <div class="flex gap-3 mb-8 justify-center lg:justify-start flex-wrap">
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">Next.js</span>
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">Stripe</span>
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">AWS Lambda</span>
+                </div>
+                <a href="#" class="inline-flex items-center gap-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 px-6 py-3 rounded-full text-sm font-bold transition-all hover-target uppercase tracking-widest border border-blue-500/20 hover:border-blue-500/50">
+                  Explore Architecture <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project 3: Right Image (Emerald Glow) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+              <div class="order-2 lg:order-1 gsap-fade-up text-center md:text-left">
+                <span class="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-emerald-400 mb-3 md:mb-4 block">AI PLATFORM</span>
+                <h3 class="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">Neural Logic Pipeline</h3>
+                <div class="mb-8">
+                  <p class="text-text-muted font-medium text-base md:text-lg leading-relaxed">Developed a massive end-to-end data pipeline feeding custom LLM models for a healthcare startup, securely parsing 1M+ patient records per day.</p>
+                </div>
+                <div class="flex gap-3 mb-8 justify-center lg:justify-start flex-wrap">
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">Python</span>
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">PostgreSQL</span>
+                  <span class="px-3 py-1 bg-surface-light rounded-full text-xs font-bold text-white/70">Docker</span>
+                </div>
+                <a href="#" class="inline-flex items-center gap-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 px-6 py-3 rounded-full text-sm font-bold transition-all hover-target uppercase tracking-widest border border-emerald-500/20 hover:border-emerald-500/50">
+                  Explore Architecture <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+              </div>
+              <div class="order-1 lg:order-2">
+                <div class="relative w-full aspect-[4/3] md:aspect-video group hover-target img-parallax-container rounded-[2rem]">
+                  <div class="absolute inset-0 bg-emerald-500/20 rounded-[2rem] blur-[60px] -z-10 group-hover:bg-emerald-500/40 transition-all duration-700"></div>
+                   <div class="rounded-[2rem] overflow-hidden glass-card p-2 md:p-3 relative z-10 w-full h-full border border-white/10 backdrop-blur-md bg-surface/50">
+                    <!-- Placeholder SVG for Project 3 -->
+                    <div class="w-full h-full rounded-xl md:rounded-[1.5rem] bg-surface-light flex items-center justify-center">
+                      <svg class="w-20 h-20 text-emerald-500/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Services -->
+      <section id="services" class="py-24 md:py-40 bg-surface/30">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-7xl font-black text-white split-header inline-block">Core Services</h2>
+            <p class="text-primary font-medium tracking-widest uppercase text-xs md:text-sm mt-4 gsap-fade-up">What I bring to the table</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card rounded-[2rem] p-6 md:p-8 hover-target gsap-fade-up">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 md:mb-8 drop-shadow-[0_0_15px_rgba(182,128,244,0.3)]">
+                <svg class="w-6 h-6 md:w-7 md:h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Website<br/>Development</h3>
+              <p class="text-text-muted text-xs md:text-sm font-medium leading-relaxed">High-performance branding sites built on Serverless web stacks.</p>
+            </div>
+             <div class="glass-card rounded-[2rem] p-6 md:p-8 hover-target gsap-fade-up">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 md:mb-8 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                <svg class="w-6 h-6 md:w-7 md:h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Web App<br/>Development</h3>
+              <p class="text-text-muted text-xs md:text-sm font-medium leading-relaxed">Complex client-facing applications tailored to your business logic.</p>
+            </div>
+             <div class="glass-card rounded-[2rem] p-6 md:p-8 hover-target gsap-fade-up">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-yellow-500/20 rounded-2xl flex items-center justify-center mb-6 md:mb-8 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                <svg class="w-6 h-6 md:w-7 md:h-7 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">MVP for<br/>Startups</h3>
+              <p class="text-text-muted text-xs md:text-sm font-medium leading-relaxed">Rapid prototype phase to get your product to the market quickly.</p>
+            </div>
+             <div class="glass-card rounded-[2rem] p-6 md:p-8 hover-target gsap-fade-up">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-6 md:mb-8 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                <svg class="w-6 h-6 md:w-7 md:h-7 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Business<br/>Systems</h3>
+              <p class="text-text-muted text-xs md:text-sm font-medium leading-relaxed">Automated workflows with custom internal tools and integrations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Journey (Experience) -->
+      <section id="experience" class="py-24 md:py-40">
+        <div class="max-w-4xl mx-auto px-6">
+          <div class="mb-16 md:mb-24 text-center md:text-left">
+            <h2 class="text-4xl md:text-7xl font-black text-white split-header inline-block">The Journey</h2>
+          </div>
+
+          <div class="relative border-l border-white/20 pl-6 md:pl-10 space-y-16 md:space-y-20 py-4 max-w-sm mx-auto md:max-w-full md:mx-0">
+            <!-- Timeline Item 1 -->
+            <div class="relative gsap-fade-up hover-target">
+              <div class="absolute -left-[33px] md:-left-[48px] top-1.5 w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full shadow-[0_0_15px_rgba(182,128,244,0.8)]"></div>
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 md:mb-4 gap-3 md:gap-4">
+                <h3 class="text-2xl md:text-3xl font-bold text-white">Senior Web Developer</h3>
+                <span class="bg-primary/10 text-primary border border-primary/20 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full uppercase tracking-widest inline-block w-max">Current</span>
+              </div>
+              <p class="text-text-muted text-base md:text-lg font-medium leading-relaxed mt-2 md:mt-4 max-w-2xl">
+                Architecting end-to-end digital experiences for international startups. Focusing on React/Next.js and scalable cloud infrastructure.
+              </p>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="relative gsap-fade-up hover-target">
+              <div class="absolute -left-[33px] md:-left-[48px] top-1.5 w-3 h-3 md:w-4 md:h-4 bg-surface-light border border-white/50 rounded-full"></div>
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 md:mb-4 gap-3 md:gap-4">
+                <h3 class="text-2xl md:text-3xl font-bold text-white">IT Intern @ AOL IT Hub</h3>
+                <span class="bg-surface-light text-text-muted text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full uppercase tracking-widest inline-block w-max">2022 - 2023</span>
+              </div>
+              <p class="text-text-muted text-base md:text-lg font-medium leading-relaxed mt-2 md:mt-4 max-w-2xl">
+                Optimized internal dashboard systems and supported cross-functional teams in maintaining reliable critical server environments.
+              </p>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="relative gsap-fade-up hover-target">
+              <div class="absolute -left-[33px] md:-left-[48px] top-1.5 w-3 h-3 md:w-4 md:h-4 bg-surface-light border border-white/50 rounded-full"></div>
+              <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 md:mb-4 gap-3 md:gap-4">
+                <h3 class="text-2xl md:text-3xl font-bold text-white">Open Source Contributor</h3>
+                <span class="bg-surface-light text-text-muted text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full uppercase tracking-widest inline-block w-max">2020 - 2022</span>
+              </div>
+              <p class="text-text-muted text-base md:text-lg font-medium leading-relaxed mt-2 md:mt-4 max-w-2xl">
+                Contributed to various UI libraries and documentation for popular JavaScript frameworks.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- Client FAQ Accordion -->
+      <section id="faq" class="py-24 md:py-40 bg-surface/30">
+        <div class="max-w-4xl mx-auto px-6">
+          <div class="mb-16 md:mb-24 text-center">
+            <h2 class="text-4xl md:text-6xl font-black text-white split-header inline-block">Freelancer FAQ</h2>
+            <p class="text-primary font-medium tracking-widest uppercase text-xs md:text-sm mt-4 gsap-fade-up">Common Operational Questions</p>
+          </div>
+
+          <div class="space-y-4 max-w-3xl mx-auto text-left">
+            
+            <div class="faq-item glass-card rounded-2xl overflow-hidden hover-target gsap-fade-up">
+              <button class="faq-btn w-full px-6 md:px-8 py-5 md:py-6 flex justify-between items-center bg-transparent border-none text-left cursor-none">
+                <span class="text-lg md:text-xl font-bold text-white">What is your typical project timeline?</span>
+                <span class="faq-icon text-primary w-6 h-6 flex justify-center items-center">
+                  <svg class="w-5 h-5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                </span>
+              </button>
+              <div class="faq-content px-6 md:px-8 pb-0 text-text-muted text-sm md:text-base h-0 opacity-0 overflow-hidden leading-relaxed">
+                <p class="pb-6">For an MVP or high-end landing page, development typically takes 2 to 4 weeks. Full-scale enterprise web applications can range from 2 to 4 months depending on architectural complexity, API integrations, and the depth of the data pipeline.</p>
+              </div>
+            </div>
+
+            <div class="faq-item glass-card rounded-2xl overflow-hidden hover-target gsap-fade-up">
+              <button class="faq-btn w-full px-6 md:px-8 py-5 md:py-6 flex justify-between items-center bg-transparent border-none text-left cursor-none">
+                <span class="text-lg md:text-xl font-bold text-white">Do you charge fixed rates or hourly?</span>
+                <span class="faq-icon text-primary w-6 h-6 flex justify-center items-center">
+                  <svg class="w-5 h-5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                </span>
+              </button>
+              <div class="faq-content px-6 md:px-8 pb-0 text-text-muted text-sm md:text-base h-0 opacity-0 overflow-hidden leading-relaxed">
+                <p class="pb-6">I strictly operate on value-based, fixed-rate pricing model per project sprint. This means you know the absolute final cost upfront without worrying about "billable hours" creeping up.</p>
+              </div>
+            </div>
+
+            <div class="faq-item glass-card rounded-2xl overflow-hidden hover-target gsap-fade-up">
+              <button class="faq-btn w-full px-6 md:px-8 py-5 md:py-6 flex justify-between items-center bg-transparent border-none text-left cursor-none">
+                <span class="text-lg md:text-xl font-bold text-white">Which regions/timezones do you work with?</span>
+                <span class="faq-icon text-primary w-6 h-6 flex justify-center items-center">
+                  <svg class="w-5 h-5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                </span>
+              </button>
+              <div class="faq-content px-6 md:px-8 pb-0 text-text-muted text-sm md:text-base h-0 opacity-0 overflow-hidden leading-relaxed">
+                <p class="pb-6">I operate a fully asynchronous, global freelance business. Whether your team is in New York, London, or Tokyo, we manage communication via Slack, Notion, and scheduled high-impact syncs to ensure total alignment.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA & Utility Footer -->
+      <section id="contact" class="pt-32 pb-12 relative flex flex-col items-center justify-center text-center">
+        <!-- Intense Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-sm md:max-w-4xl h-[300px] md:h-[400px] bg-primary/20 blur-[150px] md:blur-[200px] -z-10 rounded-full mix-blend-screen pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 z-10 w-full mb-32">
+          <h2 class="text-5xl md:text-7xl lg:text-9xl font-black text-white leading-tight md:leading-none tracking-tighter mb-8 split-header">
+            Ready to build something <span class="text-gradient font-serif italic font-medium pr-2 md:pr-4 inline-block mt-2 md:mt-0 pt-2">extraordinary?</span>
+          </h2>
+          <a href="mailto:mairandy51@gmail.com" class="hover-target inline-flex items-center justify-center bg-white text-background text-lg md:text-xl font-bold px-8 py-5 md:px-12 md:py-6 rounded-full transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)] md:shadow-[0_0_50px_rgba(255,255,255,0.2)] mt-8 md:mt-12 w-full sm:w-auto">
+            Start a Conversation
+          </a>
+        </div>
+
+        <!-- Utility Layout -->
+        <div class="w-full max-w-7xl mx-auto px-6 border-t border-white/5 pt-12 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+          <p class="text-text-muted text-sm font-medium tracking-wide">
+            &copy; 2026 Mai Randy | Engineered for Scale
+          </p>
+
+          <div class="flex gap-6 items-center">
+            <a href="#" class="hover-target text-text-muted hover:text-white transition-colors duration-300">
+              <span class="sr-only">GitHub</span>
+              <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+            </a>
+            <a href="#" class="hover-target text-text-muted hover:text-white transition-colors duration-300">
+              <span class="sr-only">LinkedIn</span>
+              <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="hover-target text-text-muted hover:text-white transition-colors duration-300">
+              <span class="sr-only">Twitter</span>
+              <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Script Execution -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
